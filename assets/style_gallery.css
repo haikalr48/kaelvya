@@ -1,0 +1,110 @@
+:root {
+  --pink: #ff7eb3;
+  --bg-grad1: #ff7eb3;
+  --bg-grad2: #8e44ad;
+  --text: #333;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bg-grad1), var(--bg-grad2));
+  color: var(--text);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 14px 24px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-radius: 0 0 12px 12px;
+}
+
+.top .brand {
+  color: var(--pink);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.nav a {
+  text-decoration: none;
+  color: #555;
+  margin-left: 16px;
+  font-weight: 600;
+}
+.nav a:hover { color: var(--pink); }
+
+#reader {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.1);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+/* Gallery Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.grid img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 15px rgba(0,0,0,.2);
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.5);
+}
+.lightbox button {
+  position: absolute;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background .2s ease;
+}
+.lightbox button:hover { background: rgba(0,0,0,0.8); }
+.close { top: 20px; right: 20px; }
+.prev  { left: 20px; }
+.next  { right: 20px; }
